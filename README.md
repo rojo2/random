@@ -38,4 +38,8 @@ random.roll(["2d6","4d12","1d2"]);
 random.roll("2d6,4d12,1d2");
 ```
 
+**NOTE**: This library uses an [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator),
+probably the most simple and basic pseudo-random number generator. **DON'T USE
+THIS TO GENERATE CRYPTOGRAPHIC RANDOM NUMBERS!**
+
 Made with ❤ by ROJO 2 (http://rojo2.com)
