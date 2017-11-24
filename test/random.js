@@ -1,4 +1,3 @@
-const {expect} = require("chai");
 const random = require("../random");
 
 describe("Random", function() {
@@ -24,19 +23,19 @@ describe("Random", function() {
     ]);
   });
 
-  it("should get a lot of pseudo-random values between 0 and 5", () => {    
+  it("should get a lot of pseudo-random values between 0 and 5", () => {
     for (let index = 0; index < 5000; index++) {
       expect(random.between(0, 5)).to.be.within(0,5);
     }
   });
-  
-  it("should get a lot of pseudo-random integers between 0 and 5", () => {    
+
+  it("should get a lot of pseudo-random integers between 0 and 5", () => {
     for (let index = 0; index < 5000; index++) {
       expect(random.intBetween(0, 5)).to.be.within(0,5);
     }
   });
 
-  it("should pick an list item", () => { 
+  it("should pick an list item", () => {
     const list = [1,2,3,4,5];
     expect(random.pickOne(list)).to.be.equal(4);
     expect(random.pickOne(list)).to.be.equal(2);
@@ -57,19 +56,19 @@ describe("Random", function() {
     const list = [1,2,3,4,5];
     expect(random.takeOne(list)).to.be.equal(4);
     expect(list).to.be.deep.equal([1,2,3,5]);
-    
+
     expect(random.takeOne(list)).to.be.equal(2);
     expect(list).to.be.deep.equal([1,3,5]);
 
     expect(random.takeOne(list)).to.be.equal(5);
     expect(list).to.be.deep.equal([1,3]);
-    
+
     expect(random.takeOne(list)).to.be.equal(1);
     expect(list).to.be.deep.equal([3]);
-    
+
     expect(random.takeOne(list)).to.be.equal(3);
     expect(list).to.be.deep.equal([]);
-    
+
     expect(random.takeOne(list)).to.be.equal(undefined);
     expect(list).to.be.deep.equal([]);
   });
@@ -104,7 +103,7 @@ describe("Random", function() {
     expect(random.regularDice()).to.be.equal(2);
     expect(random.regularDice()).to.be.equal(1);
   });
-  
+
   it("should roll eight regularDices (with its default value)", () => {
     expect(random.regularDices(8)).to.be.deep.equal([4,3,6,2,5,2,2,1]);
   });
@@ -134,7 +133,7 @@ describe("Random", function() {
     expect(random.dice(random.REGULAR_DICE)).to.be.equal(2);
     expect(random.dice(random.REGULAR_DICE)).to.be.equal(1);
   });
-  
+
   it("should roll multiple dices using dices", () => {
     expect(random.dices([
       [4, random.FUDGE_DICE],
@@ -149,7 +148,7 @@ describe("Random", function() {
     expect(random.roll("4f,4d6,4d5")).to.be.deep.equal([
       [ 0, -0, 1, -0 ],
       [ 5, 2, 2, 1 ],
-      [ 3, 4, 2, 1 ]    
+      [ 3, 4, 2, 1 ]
     ]);
   });
 
